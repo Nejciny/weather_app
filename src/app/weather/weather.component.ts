@@ -16,10 +16,16 @@ export class WeatherComponent implements OnInit {
   weatherData: any;
   city: string = 'maribor';
   last_searched_city: string = "";
+  showWeather: boolean = false;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    const storedWeatherData = localStorage.getItem('weatherData');
+    if (storedWeatherData) {
+      this.weatherData = JSON.parse(storedWeatherData);
+      this.showWeather = true;
+    }
   }
 
   async searchWeather(): Promise<void> {
@@ -44,15 +50,18 @@ export class WeatherComponent implements OnInit {
         retrievalTime: moment().format('DD.MM.YYYY ')
       };
 
+      localStorage.setItem('weatherData', JSON.stringify(this.weatherData));
       this.last_searched_city = this.city;
+      this.showWeather = true;
 
+    
       setTimeout(()=>{
         this.isLoading = false;
       }, 1000); // delay of 1seconds so we can see the loading text
 
-      console.log(data);
+      // console.log(data);
+      // console.log(this.weatherData);
 
-      console.log(this.weatherData);
 
 
     } catch (error) {
@@ -84,9 +93,11 @@ export class WeatherComponent implements OnInit {
         this.isLoading = false;
       }, 1000); // delay of 1seconds so we can see the loading text
 
-      console.log(data);
+      // console.log(data);
 
-      console.log(this.weatherData);
+      // console.log(this.weatherData);
+
+      this.showWeather = true;
 
 
     } catch (error) {
