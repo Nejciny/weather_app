@@ -1,0 +1,43 @@
+
+<div class="container">
+
+    
+
+    <div class="weather-info ">
+        <h2>Weather App</h2>
+
+        <div class="search-container">
+            <input type="text" [(ngModel)]="city" placeholder="Enter a city">
+            <button (click)="searchWeather()">Search</button>
+          </div>
+          
+          <div *ngIf="isLoading">Loading...</div>
+          <div *ngIf="!isLoading">
+
+            <div class="info-header">
+                <h3> {{weatherData.name}}  </h3>
+                <p>Pridobljeno {{weatherData.retrievalTime}}</p>
+            </div>
+
+            <div class="main-info">
+                <div class="left">
+                    <p>Temperature: {{ weatherData.main.temp }}°C</p>
+                    <p>Description: {{ weatherData.weather[0].description }}</p>
+
+                    <p>max: {{weatherData.main.temp_max}} °C</p>
+                    <p>min: {{weatherData.main.temp_min}} °C</p>
+
+                </div>
+
+                <div class="right">
+
+                </div>
+            </div>
+
+
+          </div>
+
+    </div>
+ 
+
+</div>

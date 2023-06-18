@@ -1,0 +1,23 @@
+@import "/src/global.scss";
+
+header{
+    position: fixed;
+    width: 100%;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+
+    background-color: $color-orange;
+
+    font-family: 'Teko', sans-serif;
+
+    h1{
+        font-weight: 700;
+        cursor: pointer;
+    }
+    h1:hover{
+        opacity: 0.6;
+    }
+}
