@@ -36,7 +36,7 @@ export class WeatherComponent implements OnInit {
     this.isLoading = true;
     this.weatherData = null;
 
-    // Replace 'YOUR_API_KEY' and 'YOUR_API_URL' with the appropriate values
+
     const apiKey = '1b94df0ce07291e14d52f44a6761b5de';
     // const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${this.city}`;
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${apiKey}&units=metric`
@@ -57,7 +57,7 @@ export class WeatherComponent implements OnInit {
     
       setTimeout(()=>{
         this.isLoading = false;
-      }, 1000); // delay of 1seconds so we can see the loading text
+      }, 1000); 
 
       // console.log(data);
       // console.log(this.weatherData);
@@ -75,9 +75,9 @@ export class WeatherComponent implements OnInit {
     this.isLoading = true;
     this.weatherData = null;
 
-    // Replace 'YOUR_API_KEY' and 'YOUR_API_URL' with the appropriate values
+    
     const apiKey = '1b94df0ce07291e14d52f44a6761b5de';
-    // const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${this.city}`;
+
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${this.last_searched_city}&appid=${apiKey}&units=metric`
 
     try {
@@ -91,7 +91,7 @@ export class WeatherComponent implements OnInit {
 
       setTimeout(()=>{
         this.isLoading = false;
-      }, 1000); // delay of 1seconds so we can see the loading text
+      }, 1000); 
 
       // console.log(data);
 

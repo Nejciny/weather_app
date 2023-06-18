@@ -4,7 +4,7 @@
     
 
     <div class="weather-info ">
-        <h2>Weather App</h2>
+        
 
         <div class="search-container">
             <input type="text" [(ngModel)]="city" placeholder="Enter a city">
@@ -13,17 +13,17 @@
           </div>
           
           <div *ngIf="isLoading">Loading...</div>
-          <div *ngIf="!isLoading">
+          <div *ngIf="!isLoading" class="info-container" id="info-container" [ngClass] = "{'hidden': !showWeather}">
 
             <div class="info-header">
                 <h3> {{weatherData.name}}  </h3>
                 <p>Pridobljeno {{weatherData.retrievalTime}}</p>
             </div>
 
-            <div class="main-info">
+            <div class="main-info" id="main-info" >
                 <div class="left">
-                    <p>Temperature: {{ weatherData.main.temp }}°C</p>
-                    <p>Description: {{ weatherData.weather[0].description }}</p>
+                    <p> {{ weatherData.main.temp }}°C</p>
+                    <p>{{ weatherData.weather[0].description }}</p>
 
                     <p>max: {{weatherData.main.temp_max}} °C</p>
                     <p>min: {{weatherData.main.temp_min}} °C</p>
@@ -31,7 +31,8 @@
                 </div>
 
                 <div class="right">
-
+                    <h3>5 day forecast</h3>
+                    <p>not available</p>
                 </div>
             </div>
 
