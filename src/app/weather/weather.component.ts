@@ -39,7 +39,7 @@ export class WeatherComponent implements OnInit {
 
     const apiKey = '1b94df0ce07291e14d52f44a6761b5de';
     // const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${this.city}`;
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${apiKey}&units=metric`
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${apiKey}&units=metric`;
 
     try {
       const data: any = await this.http.get(apiUrl).toPromise();
@@ -59,7 +59,7 @@ export class WeatherComponent implements OnInit {
         this.isLoading = false;
       }, 1000); 
 
-      // console.log(data);
+      console.log(data);
       // console.log(this.weatherData);
 
 
@@ -67,6 +67,7 @@ export class WeatherComponent implements OnInit {
     } catch (error) {
       console.log('An error occurred while fetching weather data:', error);
       this.isLoading = false;
+      this.showWeather = false;
     }
   }
 
@@ -78,7 +79,7 @@ export class WeatherComponent implements OnInit {
     
     const apiKey = '1b94df0ce07291e14d52f44a6761b5de';
 
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${this.last_searched_city}&appid=${apiKey}&units=metric`
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${this.last_searched_city}&appid=${apiKey}&units=metric`;
 
     try {
       const data: any = await this.http.get(apiUrl).toPromise();
@@ -93,8 +94,6 @@ export class WeatherComponent implements OnInit {
         this.isLoading = false;
       }, 1000); 
 
-      // console.log(data);
-
       // console.log(this.weatherData);
 
       this.showWeather = true;
@@ -103,6 +102,8 @@ export class WeatherComponent implements OnInit {
     } catch (error) {
       console.log('An error occurred while fetching weather data:', error);
       this.isLoading = false;
+      this.showWeather = false;
+
     }
   }
 
