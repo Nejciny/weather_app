@@ -8,16 +8,17 @@
 
         <div class="search-container">
             <input type="text" [(ngModel)]="city" placeholder="Enter a city">
-            <button class="search-weather" (click)="searchWeather()">Search</button>
+            <button class="search-weather" (click)="searchWeather()">{{'demo.search' | translate}}</button>
             <button class="refresh" (click)="searchWeather_refresh()" > <i class="fa-solid fa-arrows-rotate"></i></button>
           </div>
           
-          <div *ngIf="isLoading">Loading...</div>
+          <div *ngIf="isLoading">{{'demo.loading' | translate}}...</div>
           <div *ngIf="!isLoading" class="info-container" id="info-container" [ngClass] = "{'hidden': !showWeather}">
 
             <div class="info-header">
                 <h3> {{weatherData.name}}  </h3>
-                <p>Pridobljeno {{weatherData.retrievalTime}}</p>
+                <!-- <p>Pridobljeno {{weatherData.retrievalTime}}</p> -->
+                <p>{{'demo.pridobljeno' | translate}} {{weatherData.retrievalTime}}</p>
             </div>
 
             <div class="main-info" id="main-info" >
@@ -31,8 +32,10 @@
                 </div>
 
                 <div class="right">
-                    <h3>5 day forecast</h3>
-                    <p>not available</p>
+                    <!-- <h3>5 day forecast</h3> -->
+                    <h3>{{'demo.5_dnevna_napoved' | translate}}</h3>
+                    <!-- <p>not available</p> -->
+                    <p>{{'demo.na' | translate}}</p>
                 </div>
             </div>
 
